@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier</title>
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav>
+        <h1><a href="index.html"><img src="images.png"></a></h1>
+        <div class="onglets">
+            <form>
+                <input type="search" placeholder="rechercher">
+            </form>
+            <p><i class="far fa-heart"></i></p>
+            <a href="panier.html"><p><i class="fas fa-shopping-cart"></i></p></a>
+        </div>
+    </nav>
+    <!-- Fin de la barre de navigation -->
+    <!-- Boutons "Add to Cart" pour les produits -->
+    <div class="products-and-arrière-droit">
+        <div class="products">
+        <div class="product-container">
+            <button class="add-to-cart" data-product-id="1" data-product-price="70.00"><img src="product1.jpg" width="1000px"></button>
+            <button class="remove-from-cart" data-product-id="1" data-product-price="70.00">Supprimer</button>
+        </div>
+        
+
+        <div class="product-container">
+            <button class="add-to-cart" data-product-id="2" data-product-price="100.00"><img src="product2.jpg" width="1000px"></button>
+            <button class="remove-from-cart" data-product-id="2" data-product-price="100.00">Supprimer</button>
+        </div>
+        </div>
+
+        <!-- Div pour afficher le prix total -->
+        <div class="arrière-droit">
+        <br>
+        <center><div id="total-price">Prix total: €0.00</div></center>
+        <br><br>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    .products-and-arrière-droit{
+        display: flex;
+        justify-content: space-between;
+    }
+    .products {
+        margin-left: 10px;
+    }
+    .product-container {
+        margin-bottom: 10px;
+    }
+    .arrière-droit {
+        background-color: yellow;
+        float: right;
+        width: 200px;
+        height: 642px;
+        top: 0px;
+        font-style: oblique;
+        border-radius: 20px;
+        border: solid;
+        border-color: red;
+        margin-right: 10px;
+    }
+    .totalprice {
+        font-size: 100px;
+        margin: auto;
+    }
+</style>
+<script>
+    // Fonction pour calculer le prix total au panier
+    function calculateTotalPrice() {
+        const buttons = document.querySelectorAll('.add-to-cart');
+        let totalPrice = 0;
+
+        // Parcourir chaque bouton "Add to Cart"
+        buttons.forEach(button => {
+            const productId = button.getAttribute('data-product-id');
+            const productPrice = parseFloat(button.getAttribute('data-product-price'));
+            totalPrice += productPrice;
+        });
+
+        // Mettre à jour l'élément d'affichage du prix total
+        const totalPriceElement = document.getElementById('total-price');
+        totalPriceElement.textContent = 'Prix total: €' + totalPrice.toFixed(2);
+    }
+
+    // Fonction pour supprimer un produit du panier
+    function removeProductFromCart(productId, productPrice) {
+        const product = document.querySelector('[data-product-id="' + productId + '"]');
+        product.remove();
+
+        // Recalculer le prix total
+        calculateTotalPrice();
+    }
+
+    // Appeler la fonction pour calculer le prix total au chargement de la page
+    calculateTotalPrice();
+
+    // Écouter les clics sur les boutons "Supprimer" et appeler la fonction pour supprimer le produit
+    const removeButtons = document.querySelectorAll('.remove-from-cart');
+    removeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = button.getAttribute('data-product-id');
+            const productPrice = parseFloat(button.getAttribute('data-product-price'));
+            removeProductFromCart(productId, productPrice);
+        });
+    });
+</script>

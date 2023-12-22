@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produit 1</title>
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav>
+        <h1><a href="index.html"><img src="images.png"></a></h1>
+        <div class="onglets">
+            <form>
+                <input type="search" placeholder="rechercher">
+            </form>
+            <p><i class="far fa-heart"></i></p>
+            <a href="panier.html"><p><i class="fas fa-shopping-cart"></i></p></a>
+        </div>
+    </nav>
+    <!-- Fin de la barre de navigation -->
+    <div class="product-and-arrière-droit">
+    <div class="product">
+        <img src="product1.jpg" alt="chaussures d'électricité" width="1000px">
+    </div>
+    <div class="arrière-droit">
+        <div class="price">70 <sup>00</sup> €</div>
+        <br>
+        <div class="description-produit">Ces chaussures sont à Géorgina Rodriguez si vous en voulez je vais lui réclamer et vous les aurez ne vous inquiétez pas.</p></div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="add-to-cart"><a target="_blank" href="panier.html"><button id="add-to-cart-btn" data-product-id="1" data-product-price="70.00">Ajouter au panier</button></a></div>
+    </div>
+    </div>
+</body>
+</html>
+<style>
+    .product-and-arrière-droit {
+        display: flex;
+        justify-content: space-between;
+    }
+    button {
+        background-color: #ffff00;
+        font-family: 'Comic SansMS';
+        color: red;
+        border-radius: 50px;
+        border-color: red;
+        width: 180px;
+        height: 50px;
+
+    }
+    .come-back {
+        margin-left: 20px;
+        border-radius: 20px;
+        font-size: 20pt;
+        border-radius: 20px;
+        border: solid;
+        border-color: red;
+        width: 290px;
+        text-align: center;
+        font-family: 'Comic SansMS';
+    }
+    .come-back:hover {
+        background-color: gold;
+    }
+    button:hover {
+        background-color: gold;
+    }
+    .product {
+        margin-left: 20px;
+        border-radius: 20px;
+        border: 10px solid;
+        border-color: red;
+        width: 1000px;
+        height: 642px;
+    }
+    .arrière-droit {
+        background-color: yellow;
+        float: right;
+        width: 200px;
+        height: 642px;
+        font-style: oblique;
+        border-radius: 20px;
+        border: solid;
+        border-color: red;
+        margin-right: 10px;
+    }
+    .price {
+        margin-top: 10px;
+        margin-left: 10px;
+        font-size: 20px;
+    }
+    .description-produit {
+        margin-left: 10px;
+        margin-right: 10px;
+        top: 50%;
+    }
+    .add-to-cart {
+        margin-left: 10px;
+    }
+    :placeholder-shown {
+        font-family: 'Comic SansMS';
+    }
+</style>
